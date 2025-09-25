@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Dashboard</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Social<span>Dash</span></h2>
+    <ul>
+      <li class="active" data-section="dashboard"><i class="fas fa-chart-pie"></i> Dashboard</li>
+      <li data-section="users"><i class="fas fa-users"></i> Users</li>
+      <li data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</li>
+      <li data-section="settings"><i class="fas fa-cog"></i> Settings</li>
+      <li data-section="messages"><i class="fas fa-envelope"></i> Messages</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <header class="topbar">
+      <input type="text" placeholder="Search…">
+      <button id="themeToggle"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="page dashboard-page active">
+      <div class="cards">
+        <div class="card"><h3>Followers</h3><p>25.4k</p></div>
+        <div class="card"><h3>Engagement</h3><p>68%</p></div>
+        <div class="card"><h3>New Signups</h3><p>1.2k</p></div>
+        <div class="card"><h3>Reach</h3><p>87k</p></div>
+      </div>
+
+      <div class="chart-section">
+        <div class="chart-card"><h3>User Growth (7 Days)</h3><canvas id="userGrowthChart"></canvas></div>
+        <div class="chart-card"><h3>Engagement by Platform</h3><canvas id="engagementChart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Users Section -->
+    <section class="page users-page">
+      <h2>Users</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Email</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>John Doe</td><td>john@example.com</td><td>Active</td></tr>
+          <tr><td>Anna Smith</td><td>anna@example.com</td><td>Pending</td></tr>
+          <tr><td>Mike Ross</td><td>mike@example.com</td><td>Blocked</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Analytics Section -->
+    <section class="page analytics-page">
+      <h2>Analytics Dashboard</h2>
+
+      <!-- Filters -->
+      <div class="filters">
+        <label>Time Range:
+          <select id="timeRange">
+            <option>Last 7 Days</option>
+            <option>Last 30 Days</option>
+            <option>Last 90 Days</option>
+          </select>
+        </label>
+        <label>Region:
+          <select id="region">
+            <option>All</option>
+            <option>North America</option>
+            <option>Europe</option>
+            <option>Asia</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="analytics-kpis">
+        <div class="kpi-card">
+          <h3>Revenue</h3>
+          <p>$120,000</p>
+          <span class="positive">+12%</span>
+          <canvas id="sparkRevenue" height="30"></canvas>
+        </div>
+        <div class="kpi-card">
+          <h3>Active Users</h3>
+          <p>8,450</p>
+          <span class="positive">+8%</span>
+          <canvas id="sparkUsers" height="30"></canvas>
+        </div>
+        <div class="kpi-card">
+          <h3>Conversions</h3>
+          <p>2,150</p>
+          <span class="positive">+6%</span>
+          <canvas id="sparkConversions" height="30"></canvas>
+        </div>
+        <div class="kpi-card">
+          <h3>Bounce Rate</h3>
+          <p>32%</p>
+          <span class="negative">-4%</span>
+          <canvas id="sparkBounce" height="30"></canvas>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="chart-section">
+        <div class="chart-card">
+          <h3>Stacked Bar Chart – Traffic by Platform</h3>
+          <canvas id="trafficStacked"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Multi-Line Trend – Engagement Over Time</h3>
+          <canvas id="engagementTrend"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section class="page settings-page">
+      <h2>Settings</h2>
+      <form>
+        <label>Name:</label>
+        <input type="text" value="Admin User">
+        <label>Email:</label>
+        <input type="email" value="admin@example.com">
+        <label>Notifications:</label>
+        <select>
+          <option>Enable</option>
+          <option>Disable</option>
+        </select>
+        <button class="save-btn">Save Changes</button>
+      </form>
+    </section>
+
+    <!-- Messages Section -->
+    <section class="page messages-page">
+      <h2>Messages</h2>
+      <ul>
+        <li><strong>John:</strong> Hi, can you help me?</li>
+        <li><strong>Anna:</strong> My account issue resolved!</li>
+        <li><strong>Support Bot:</strong> Reminder about upcoming update.</li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<!-- Local JS -->
+<script src="script.js"></script>
+</body>
+</html>
