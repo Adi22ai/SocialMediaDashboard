@@ -159,3 +159,25 @@ function updateAnalyticsCharts(){
 if(document.querySelector('.analytics-page').classList.contains('active')){
   updateAnalyticsCharts();
 }
+// SPA Navigation, Dark Mode, Charts, Analytics filters, Sparklines, AI insights
+// (Use previous JS code here)
+
+// Modal Logic
+const modal = document.getElementById('authModal');
+const modalTitle = document.getElementById('modalTitle');
+const authForm = document.getElementById('authForm');
+const loginBtn = document.getElementById('loginBtn');
+const signupBtn = document.getElementById('signupBtn');
+const closeBtn = document.querySelector('.close');
+
+loginBtn.onclick = () => { modal.style.display = 'flex'; modalTitle.textContent = 'Log In'; }
+signupBtn.onclick = () => { modal.style.display = 'flex'; modalTitle.textContent = 'Sign Up'; }
+closeBtn.onclick = () => modal.style.display = 'none';
+window.onclick = e => { if(e.target == modal) modal.style.display = 'none'; }
+
+authForm.onsubmit = e => {
+  e.preventDefault();
+  alert(`${modalTitle.textContent} successful! (mock)`); 
+  modal.style.display='none';
+  authForm.reset();
+}
